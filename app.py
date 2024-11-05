@@ -26,6 +26,8 @@ def predict():
     if file.filename == '' or not file:
         return jsonify({"error": "File name is empty. Please upload a valid image file."}), 400
 
+    print("file name : ", file.filename)
+
     details = {
         "general": {
             "imageUrl": "general",
@@ -56,6 +58,8 @@ def predict():
     predicted_class = class_names[np.argmax(prediction[0])].strip()
     predictedType = predicted_class.split(" ")[1]
 
+    print("predict : ", predictedType)
+
     return jsonify({
         "type": predictedType,
         "imageUrl": details[predictedType]["imageUrl"],
@@ -63,4 +67,4 @@ def predict():
     }), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3000)
+    app.run(host='0.0.0.0', port=7000)
