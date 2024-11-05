@@ -1,0 +1,4 @@
+0 general
+1 foodwaste
+2 hazardous
+3 recycle
