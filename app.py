@@ -11,6 +11,10 @@ class_names = open("./labels.txt", "r").readlines()
 # Initialize Flask app
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def home():
+    return "Server is running!", 200  # Return a simple message
+
 # Define the prediction route
 @app.route('/predict', methods=['POST'])
 def predict():
